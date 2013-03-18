@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-<head>
-  <meta charset="utf-8">
-  <title>
-    {% if page.title %}
-      {{ page.title }} &ndash;
-    {% endif %}
-    {{ site.name }}
-  </title>
-
-  <meta name="author" content="{{ site.name }}" />
-  <meta name="description" content="{{ site.description }}" />
-
-  <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Todd H Dow by toddhdow</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/headstyles.css">
@@ -22,14 +13,10 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-</head>
-
-<body>
-
+  </head>
+  <body>
 
     <div class="wrapper">
-
       <header>
         <h1>Todd H Dow</h1>
         <p>
@@ -48,14 +35,34 @@
         <a href="http://www.youtube.com/toddhdow" target="sm7"><img src="http://content.wirepaper.com/images/youtube.png" width="28"></a>
         </p>
 
-        <a href="/">Home</a>
-        <a href="links.html">Links</a>
       </header>
+      
+      <section>
+      
+	  <h3>my long form writing</h3>
+		<p>
+		<ul>
+		<li>Cystic Diagnosis - coming soon</li>
+		<li>The God Solution - coming soon</li>
+		<li>Holy War - coming soon</li>
+		</ul>
+		</p>
 
-	  <section>
-	        
+	  <h3>my projects</h3>
+	  	<p>
+	  	<ul>
+	  	<li>I'll list something here as soon as it's ready to be shared</li>
+	  	</ul>
+	  	</p>
 
-  {{ content }}
+	  <h3>my short form writing</h3>
+	    <p>
+	    <ul>
+	    <li>I'll update this list shortly</li>
+	    </ul>
+	    </p>
+	  
+	  <a href="links.html">my links</a>
 
       </section>
 
@@ -77,7 +84,5 @@
             } catch(err) {}
           </script>
 
-
-</body>
-
+  </body>
 </html>
