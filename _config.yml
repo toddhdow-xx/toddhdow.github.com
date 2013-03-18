@@ -6,7 +6,7 @@ rdiscount:
   extensions: [smart]
 
 name: Todd Dow
-url: http://toddhdow.com
+url: http://toddhdow.github.com
 description: My experiments building, publishing and marketing on the web
 twitter: toddhdow
 github: toddhdow
