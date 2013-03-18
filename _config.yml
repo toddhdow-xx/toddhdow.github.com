@@ -1,0 +1,13 @@
+markdown: rdiscount
+pygments: true
+permalink: /posts/:title
+auto: true
+rdiscount:
+  extensions: [smart]
+
+name: Todd Dow
+url: http://toddhdow.com
+description: My experiments building, publishing and marketing on the web
+twitter: toddhdow
+github: toddhdow
+gravatar_url: http://www.gravatar.com/avatar/e64c700ba8356e85df84a3da28224b81
