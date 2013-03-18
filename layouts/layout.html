@@ -14,18 +14,19 @@
 
   <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
 
-  <link rel="stylesheet" href="/css/base.css" type="text/css" media="screen, projection" />
-  <link rel="stylesheet" href="/css/pygments.css" type="text/css" />
-  <link media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" rel="stylesheet" />
-  <link media="only screen and (device-width: 768px)" href="/css/iphone.css" type="text/css" rel="stylesheet" />
-  <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/headstyles.css">
+    <link rel="stylesheet" href="/webfonts/ss-social.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/application.js"></script>
 </head>
 
 <body>
+
   <section class="sidebar">
     <a href="/">
       <img src="{{ site.gravatar_url }}?s=150" height="75" width="75" class="avatar" />
@@ -44,15 +45,54 @@
       <a href="/atom.xml"><img src="/images/rss.png" /></a>
     </section>
 
-    <section class="sections">
-      <ul>
-        <li><a href="/about.html">about</a></li>
-        <li><a href="/">posts</a></li>
-      </ul>
-    </section>
-  </section>
+
+    <div class="wrapper">
+      <header>
+        <h1>Todd H Dow</h1>
+        <p>
+	    <img src="images/todd-head-2012-large.jpg"><BR>
+	    I'm a writer, geek (Senior Digital Specialist @ Postmedia) & CF fundraiser. My wife, my kids, faith, baseball, infosec & devops are a few of my favourite things.<BR>
+
+        </p>
+
+        <p class="view">
+        <a href="http://www.github.com/toddhdow" target="sm8"><img src="http://content.wirepaper.com/images/github.png" width="28"></a>
+        <a href="http://twitter.com/#!/toddhdow" target="sm4"><img src="http://content.wirepaper.com/images/twitter-2.png" width="28"></a>
+        <a href="//plus.google.com/112156093119748555087?prsrc=3" rel="publisher" style="text-decoration:none;"><img src="http://content.wirepaper.com/images/googleplus.png" alt="Google+" style="border:0;width:28px;height:28px;"/></a>
+        <a href="http://ca.linkedin.com/in/toddhdow" target="sm5"><img src="http://content.wirepaper.com/images/linkedin.png" width="28"></a>
+        <a href="http://www.facebook.com/toddhdow" target="sm3"><img src="http://content.wirepaper.com/images/facebook.png" width="28"></a>
+        <a href="http://www.flickr.com/photos/toddhdow/" target="sm6"><img src="http://content.wirepaper.com/images/flickr.png" width="28"></a>
+        <a href="http://www.youtube.com/toddhdow" target="sm7"><img src="http://content.wirepaper.com/images/youtube.png" width="28"></a>
+        </p>
+
+      </header>
+
+	  <section>
+	        
 
   {{ content }}
+
+      </section>
+
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+
+    </div>
+
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-1846010-13");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
 </body>
 
 </html>
