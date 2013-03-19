@@ -1,5 +1,5 @@
-toddhdow.github.com
-===================
+## toddhdow.github.com
+
 I'm using this site as my online home.
 
 My goals:
