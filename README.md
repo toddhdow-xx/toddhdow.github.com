@@ -7,5 +7,11 @@ My goals:
 * make this my start page
 * inventory my work here
 
-Installation
-=======
+## Installation
+
+- Install Jekyll: `gem install jekyll`
+- Fork this repository
+- Clone it: `git clone https://github.com/YOUR-USER/projectname`
+- Run the jekyll server: `jekyll --server`
+
+You should have a server up and running locally at <http://localhost:4000>.
