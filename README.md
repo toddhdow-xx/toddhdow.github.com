@@ -7,3 +7,5 @@ My goals:
 * make this my start page
 * inventory my work here
 
+Installation
+=======
