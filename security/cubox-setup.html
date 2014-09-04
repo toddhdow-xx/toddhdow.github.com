@@ -1,0 +1,84 @@
+---
+layout: layout
+title: "Home"
+---
+
+#### Insructions for building a cubox-i4pro ####
+
+Key links:
+http://www.solid-run.com/wiki/Main_Page
+http://www.offensive-security.com/kali-linux-vmware-arm-image-download/
+http://tools.kali.org/
+
+To flash an image:
+http://www.solid-run.com/wiki/Flash_an_image#OS_X
+mount
+sudo diskutil unmountDisk /dev/disk1*
+sudo dd if=kali-1.0.9-cubox-i.img of=/dev/rdisk1 bs=4096
+(control+T to see progress of image creation)
+
+Insert disk into cubox-i4pro, plug in peripherals and power it up. Voila!
+
+Get wireless working:
+Follow instructions on this page for GNOME:
+https://wiki.debian.org/WiFi/HowToUse
+(copied here for reference)
+
+GNOME
+Ensure your user account is a member of the netdev group.
+Install the network-manager-gnome package:
+$ su
+# apt-get update
+# apt-get install network-manager-gnome
+Log out of GNOME, then log back in to your system.
+A new applet (computer icon) will appear in the notification area / system tray. Left-click this icon to present the nm-applet pop-up menu.
+Neighboring wireless networks with a broadcasted SSID should be listed:
+Click on the desired network's name.
+If the network uses WPA encryption with a password (aka passphrase/pre-shared key), you will be prompted to enter it. After providing, click the "Connect" button.
+The wireless network connection will be activated.
+If the desired network is not listed (e.g. SSID not broadcast/hidden):
+Click "Connect to Other Wireless Network...".
+Enter the network's SSID at "Network Name".
+If encryption is used, select the method from the "Wireless Security" drop-down list (usually "WPA Personal" or "WPA2 Personal").
+Enter the passphrase/pre-shared key at "Password".
+Click the "Connect" button to activate the wireless network connection.
+
+Voila! Wireless networking!
+
+Install nmap:
+Follow install instructions on this page:
+https://scottlinux.com/2012/05/22/install-nmap-6-on-debian-or-ubuntu-linux/
+(copied here for reference)
+
+1. First install some needed packages:
+$ sudo apt-get install build-essential
+$ sudo apt-get install libssl-dev
+$ sudo apt-get install libpathfinder-openssl-1 (I couldn't get this line to work)
+$ sudo apt-get install liblinear-dev
+$ sudo apt-get install libpcap0.8-dev
+$ sudo apt-get install libpcre3-dev
+checkinstall (I couldn't get this line to work)
+
+2. Next, grab the latest nmap tarball from http://nmap.org/download.html:
+(check for the latest version at nmap.org/dist before proceeding)
+$ wget http://nmap.org/dist/nmap-6.47.tar.bz2
+
+3. Extract:
+$ tar xvf nmap-6.01.tar.bz2
+
+4. Change to the nmap directory we extracted:
+$ cd nmap-6.47/
+
+5. Configure:
+$ ./configure
+
+6.
+$ make
+
+7.
+$ sudo checkinstall (I couldn't get this line to work)
+
+8. Run nmap:
+nmap -V
+
+Voila!
