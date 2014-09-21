@@ -90,6 +90,33 @@ sudo apt-get update
 sudo apt-get install iceweasel
 
 
+Time setup:
+dpkg-reconfigure tzdata
+
+Install LAMP stack:
+great step by step here:
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-debian
+
+apt-update
+apt-get install apache2
+apt-get install mysql-server
+mysql_secure_installation
+Then the prompt will ask you if you want to change the root password. Go ahead and choose N and move on to the next steps.
+It’s easiest just to say Yes to all the options. At the end, MySQL will reload and implement the new changes.
+
+apt-get install php5 php-pear php5-mysql
+service apache2 restart
+
+nano /var/www/html/info.php
+Add in the following line:
+
+<?php
+phpinfo();
+?>
+
+VOILA! All done,
+
+
 Install Chrome:
 https://www.google.com/chrome/browser/?platform=linux
 (download for Debian)
