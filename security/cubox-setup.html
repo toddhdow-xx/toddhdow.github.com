@@ -112,12 +112,18 @@ service apache2 restart
 
 nano /var/www/html/info.php
 Add in the following line:
-
 <?php
 phpinfo();
 ?>
 
-VOILA! All done,
+VOILA! All done.
+
+
+########
+Install Calibre:
+sudo apt-get update
+sudo apt-get install calibre
+calibre-server --with-library=/home/pi/calibre
 
 
 Install Chrome:
