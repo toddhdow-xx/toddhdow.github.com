@@ -1,0 +1,108 @@
+---
+layout: layout
+title: "git"
+---
+
+
+<pre>
+We'll work with this repo: https://github.com/toddhdow/toddhdow.github.com.git
+
+1. Pull down a repo: = clone:
+In the terminal: git clone git@github.com:toddhdow/toddhdow.github.com.git
+
+git remote -v = tells you the location of the repository;
+git branch = which branch we're on;
+git status = status;
+git reflog = tells me the commit # that I am at;
+
+git remote -v shows us the short names of where this code is related;
+ - we can then use those short names (origin) instead of the longer location names (git@github.com/toddhdow/toddhdow.github.com.git);
+
+EDITING YOUR CODE:
+Edit readme.md - add your name to the content of the file;
+Save.
+In terminal: git status
+it will show that changes have been made.
+git add . - this will add the files to be committed (. = all files)
+
+git commit -m "added Todd to readme.md"
+git reflog - shows the revisions of the repo;
+
+git push origin master = attempt to commit the code to the master;
+
+Let's reset our code so that we don't mess with master.
+git reset HEAD^1
+
+we will now pull the original git repo and overwrite our changes:
+git checkout -- README.md (case sensitive)
+or, wildcard: git checkout -- *
+
+Next, we'll create a branch:
+git help branch = man page re all of the details
+
+git branch -a = list all branches
+
+git branch right = create new branch called right
+git branch = all branches that we own
+git branch -a = all branches
+
+git checkout right = switch to branch
+git push origin right = this will add the branch to the remote repo so that it is tracked.
+git pull origin right
+git pull origin left
+git checkout left
+(for some reason, the above lines weren't working - so - follow the below steps to access branch left)
+
+### check in files = push:
+git branch left
+git checkout left
+add a new file  - todd.txt using textedit
+git add .
+git commit -m 'added todd.txt file'
+git reflog (to review)
+git push origin left = Mark committed previously - so, this should fail;
+
+pull versus rebase:
+ - pull shows you the elapsed time form when you first pulled and the commit (shows the total duration);
+ - rebase allows you to shorten the time that you have actually been working on a branch;
+
+So now, we need to repull:
+git status (to confirm we're on left branch)
+if not on left branch: "git checkout left"
+git pull origin master
+git pull origin left
+git push origin left
+
+close out the topic branch:
+master owner can then merge a branch into the master;
+using github, you can merge the branches into master.
+
+
+Forking code:
+I'd like to work on a project, but I want my own separate set of code, and then I can submit back to the project if I want to at a later time.
+
+cleanup:
+This will remove from my local machine:
+git branch -d right
+git branch -d left
+
+This will remove from my git repo:
+git push origin --delete left = this will kill this branch;
+
+
+Rebase:
+git reflog
+git reset HEAD^1
+git rebase --onto --root
+
+
+Help on versioning:
+It's okay to delete branches.
+Use tags to tag release #s.
+
+To revert back:
+git reset --hard f52273c (reset to an earlier reflag #)
+git commit -m "reset back to the beginning" (commit w/ comment)
+git push origin master --force (force an update to the master branch on the origin)
+
+</pre>
