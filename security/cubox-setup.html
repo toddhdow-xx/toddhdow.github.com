@@ -23,24 +23,29 @@ Insert disk into cubox-i4pro, plug in peripherals and power it up. Voila!
 
 INCREASE PARTITION SIZE
 source: http://askubuntu.com/questions/116351/increase-partition-size-on-which-ubuntu-is-installed
-Here's the list of steps for a simple scenario where you have two partitions, /dev/sda1 is an ext4 partition the OS is booted from and /dev/sdb2 is swap. For this exercise we want to remove the swap partition an extend /dev/sda1 to the whole disk.
 
-    As always, make sure you have a backup of your data - since we're going to modify the partition table there's a chance to lose all your data if you make a typo, for example.
+I have 1 drive with two partitions:
+/dev/mmcblk0p1
+/dev/mmcblk0p2
 
-    Run sudo fdisk /dev/sda
-        use p to list the partitions. Make note of the start cylinder of /dev/sda1
-        use d to delete first the swap partition (2) and then the /dev/sda1 partition. This is very scary but is actually harmless as the data is not written to the disk until you write the changes to the disk.
-        use n to create a new primary partition. Make sure its start cylinder is exactly the same as the old /dev/sda1 used to have. For the end cylinder agree with the default choice, which is to make the partition to span the whole disk.
-        use a to toggle the bootable flag on the new /dev/sda1
-        review your changes, make a deep breath and use w to write the new partition table to disk. You'll get a message telling that the kernel couldn't re-read the partition table because the device is busy, but that's ok.
+Note, for the below steps: data is not written to the disk until you write the changes to the disk in the las step.
 
-    Reboot with sudo reboot. When the system boots, you'll have a smaller filesystem living inside a larger partition.
+1. sudo fdisk /dev/mmcblk0
+ a) use p to list the partitions. Make note of the start cylinder of /dev/mmcblk0p2
+ b) use d to delete first the second partition (2) and then the /dev/mmcblk0p2 partition.
+ c) use n to create a new primary partition. Make sure its start cylinder is exactly the same as the old /dev/mmcblk0p2 used to have. For the end cylinder agree with the default choice, which is to make the partition to span the whole disk.
+ d) review your changes, take a deep breath and use w to write the new partition table to disk. You'll get a message telling that the kernel couldn't re-read the partition table because the device is busy, but that's ok.
 
-    The next magic command is resize2fs. Run sudo resize2fs /dev/sda1 - this form will default to making the filesystem to take all available space on the partition.
+2. Reboot with sudo reboot. When the system boots, you'll have a smaller filesystem living inside a larger partition.
 
-That's it, we've just resized a partition on which Ubuntu is installed, without booting from an external drive. 
+3. Finally, run resize2fs. Run sudo resize2fs /dev/mmcblk0p2 - this form will default to making the filesystem to take all available space on the partition.
 
-Get wireless working:
+Voila! All done. Your sd card should now be fully utilized.
+
+(optional) Get wireless working:
+I think setting up wireless networking is making my system hang on reboot.
+I'm not going to install wireless for the time being.
+
 Follow instructions on this page for GNOME:
 https://wiki.debian.org/WiFi/HowToUse
 (copied here for reference)
@@ -114,6 +119,27 @@ sudo apt-get install iceweasel
 
 Time setup:
 dpkg-reconfigure tzdata
+
+
+Install git:
+sudo apt-get install git
+
+Generate SSH Keys:
+source: https://help.github.com/articles/generating-ssh-keys
+1. ls -al ~/.ssh
+2. ssh-keygen -t rsa -C "your_email@example.com"
+> Generating public/private rsa key pair.
+> Enter file in whcih to save the key (/Users/you/.ssh/id_rsa): [Press enter]
+3. Enter a passphrase: [type passphrase]
+4. Enter same passphrase again: [type passphrase again]
+5. eval "$(ssh-agent -s)"
+6. ssh-add ~/.ssh/id_rsa
+7. pbcopy < ~/.ssh/id_rsa.pub (alternately, use your favourite text editor)
+8. Go to github, click config (gear icon) top right of any screen.
+9. Click SSH Keys in the left sidebar, follow the prompts.
+10. ssh -T git@github.com
+DONE!
+
 
 Install LAMP stack:
 great step by step here:
