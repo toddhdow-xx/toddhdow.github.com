@@ -71,6 +71,20 @@ Click the "Connect" button to activate the wireless network connection.
 
 Voila! Wireless networking!
 
+
+Install Bash update:
+(to protect against Bash Shellshock vulnerability)
+Source: http://superuser.com/questions/816662/how-do-i-fix-the-shellshock-security-vulnerability-in-debian-testing-jessie
+Test:
+env x='() { :;}; echo vulnerable' bash -c "echo this is a test"
+If you are vulnerable, you'll get back:
+vulnerable
+this is a test.
+If so, follow these two commands:
+1. wget http://ftp.debian.org/debian/pool/main/b/bash/bash_4.3-9.2_$(dpkg --print-architecture).deb
+2. sudo dpkg -i bash_4.3-9.2_$(dpkg --print-architecture).deb
+DONE!
+
 Install nmap:
 Follow install instructions on this page:
 https://scottlinux.com/2012/05/22/install-nmap-6-on-debian-or-ubuntu-linux/
