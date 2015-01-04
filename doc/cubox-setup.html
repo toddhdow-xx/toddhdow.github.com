@@ -1,0 +1,214 @@
+---
+layout: layout
+title: "Home"
+---
+
+
+<pre>
+#### Insructions for building a cubox-i4pro ####
+
+Key links:
+http://www.solid-run.com/wiki/Main_Page
+http://www.offensive-security.com/kali-linux-vmware-arm-image-download/
+http://tools.kali.org/
+
+To flash an image:
+http://www.solid-run.com/wiki/Flash_an_image#OS_X
+mount
+sudo diskutil unmountDisk /dev/disk1*
+sudo dd if=kali-1.0.9-cubox-i.img of=/dev/rdisk1 bs=4096
+(control+T to see progress of image creation)
+
+Insert disk into cubox-i4pro, plug in peripherals and power it up. Voila!
+
+INCREASE PARTITION SIZE
+source: http://askubuntu.com/questions/116351/increase-partition-size-on-which-ubuntu-is-installed
+
+I have 1 drive with two partitions:
+/dev/mmcblk0p1
+/dev/mmcblk0p2
+
+Note, for the below steps: data is not written to the disk until you write the changes to the disk in the las step.
+
+1. sudo fdisk /dev/mmcblk0
+ a) use p to list the partitions. Make note of the start cylinder of /dev/mmcblk0p2
+ b) use d to delete first the second partition (2) and then the /dev/mmcblk0p2 partition.
+ c) use n to create a new primary partition. Make sure its start cylinder is exactly the same as the old /dev/mmcblk0p2 used to have. For the end cylinder agree with the default choice, which is to make the partition to span the whole disk.
+ d) review your changes, take a deep breath and use w to write the new partition table to disk. You'll get a message telling that the kernel couldn't re-read the partition table because the device is busy, but that's ok.
+
+2. Reboot with sudo reboot. When the system boots, you'll have a smaller filesystem living inside a larger partition.
+
+3. Finally, run resize2fs. Run sudo resize2fs /dev/mmcblk0p2 - this form will default to making the filesystem to take all available space on the partition.
+
+Voila! All done. Your sd card should now be fully utilized.
+
+(optional) Get wireless working:
+I think setting up wireless networking is making my system hang on reboot.
+I'm not going to install wireless for the time being.
+
+Follow instructions on this page for GNOME:
+https://wiki.debian.org/WiFi/HowToUse
+(copied here for reference)
+
+GNOME
+Ensure your user account is a member of the netdev group.
+Install the network-manager-gnome package:
+$ su
+# apt-get update
+# apt-get install network-manager-gnome
+Log out of GNOME, then log back in to your system.
+A new applet (computer icon) will appear in the notification area / system tray. Left-click this icon to present the nm-applet pop-up menu.
+Neighboring wireless networks with a broadcasted SSID should be listed:
+Click on the desired network's name.
+If the network uses WPA encryption with a password (aka passphrase/pre-shared key), you will be prompted to enter it. After providing, click the "Connect" button.
+The wireless network connection will be activated.
+If the desired network is not listed (e.g. SSID not broadcast/hidden):
+Click "Connect to Other Wireless Network...".
+Enter the network's SSID at "Network Name".
+If encryption is used, select the method from the "Wireless Security" drop-down list (usually "WPA Personal" or "WPA2 Personal").
+Enter the passphrase/pre-shared key at "Password".
+Click the "Connect" button to activate the wireless network connection.
+
+Voila! Wireless networking!
+
+
+Install Bash update:
+(to protect against Bash Shellshock vulnerability)
+Source: http://superuser.com/questions/816662/how-do-i-fix-the-shellshock-security-vulnerability-in-debian-testing-jessie
+Test:
+env x='() { :;}; echo vulnerable' bash -c "echo this is a test"
+If you are vulnerable, you'll get back:
+vulnerable
+this is a test.
+If so, follow these two commands:
+1. wget http://ftp.debian.org/debian/pool/main/b/bash/bash_4.3-9.2_$(dpkg --print-architecture).deb
+2. sudo dpkg -i bash_4.3-9.2_$(dpkg --print-architecture).deb
+DONE!
+
+Install nmap:
+Follow install instructions on this page:
+https://scottlinux.com/2012/05/22/install-nmap-6-on-debian-or-ubuntu-linux/
+(copied here for reference)
+
+1. First install some needed packages:
+$ sudo apt-get install build-essential
+$ sudo apt-get install libssl-dev
+$ sudo apt-get install libpathfinder-openssl-1 (I couldn't get this line to work)
+$ sudo apt-get install liblinear-dev
+$ sudo apt-get install libpcap0.8-dev
+$ sudo apt-get install libpcre3-dev
+checkinstall (I couldn't get this line to work)
+
+2. Next, grab the latest nmap tarball from http://nmap.org/download.html:
+(check for the latest version at nmap.org/dist before proceeding)
+$ wget http://nmap.org/dist/nmap-6.47.tar.bz2
+
+3. Extract:
+$ tar xvf nmap-6.01.tar.bz2
+
+4. Change to the nmap directory we extracted:
+$ cd nmap-6.47/
+
+5. Configure:
+$ ./configure
+
+6.
+$ make
+
+7.
+$ make install
+
+8.
+$ sudo checkinstall (I couldn't get this line to work)
+
+9. Run nmap:
+nmap -V
+
+Voila!
+
+Install iceweasel (web browser):
+sudo apt-get update
+sudo apt-get install iceweasel
+
+
+Time setup:
+dpkg-reconfigure tzdata
+
+
+Install git:
+sudo apt-get install git
+
+Generate SSH Keys:
+source: https://help.github.com/articles/generating-ssh-keys
+1. ls -al ~/.ssh
+2. ssh-keygen -t rsa -C "your_email@example.com"
+> Generating public/private rsa key pair.
+> Enter file in whcih to save the key (/Users/you/.ssh/id_rsa): [Press enter]
+3. Enter a passphrase: [type passphrase]
+4. Enter same passphrase again: [type passphrase again]
+5. eval "$(ssh-agent -s)"
+6. ssh-add ~/.ssh/id_rsa
+7. pbcopy < ~/.ssh/id_rsa.pub (alternately, use your favourite text editor)
+8. Go to github, click config (gear icon) top right of any screen.
+9. Click SSH Keys in the left sidebar, follow the prompts.
+10. ssh -T git@github.com
+DONE!
+
+See git.html for more instructions on using git.
+
+INSTALL WIRESHARK:
+sudo apt-get install wireshark
+
+INSTALL JOHN THE RIPPER:
+sudo apt-get install john
+
+INSTALL HYDRA:
+sudo apt-get install hydra
+
+INSTALL VNC TOOL - REMMINA:
+apt-get install remmina
+
+
+Install LAMP stack:
+great step by step here:
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-debian
+
+apt-update
+apt-get install apache2
+apt-get install mysql-server
+mysql_secure_installation
+Then the prompt will ask you if you want to change the root password. Go ahead and choose N and move on to the next steps.
+It’s easiest just to say Yes to all the options. At the end, MySQL will reload and implement the new changes.
+
+apt-get install php5 php-pear php5-mysql
+service apache2 restart
+
+nano /var/www/html/info.php
+Add in the following line:
+<?php
+phpinfo();
+?>
+
+VOILA! All done.
+
+
+########
+Install Calibre:
+sudo apt-get update
+sudo apt-get install calibre
+calibre-server --with-library=/home/pi/calibre
+
+To do:
+What is apprenticealf? http://apprenticealf.wordpress.com/
+
+
+Install Chrome:
+https://www.google.com/chrome/browser/?platform=linux
+(download for Debian)
+
+
+Kali install:
+Currently, the keyboard is not working on boot. Try this to see if it helps:
+https://forums.kali.org/showthread.php?22347-USB-doesn-t-work-on-Raspberry-Pi&highlight=keyboard
+
+</pre>
