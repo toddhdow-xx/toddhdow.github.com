@@ -1,0 +1,16 @@
+Instructions for migrating my blog content from wordpress to jekyll:
+Reference: http://import.jekyllrb.com/docs/installation/
+I used ec2 to do this, as my laptop is a bit old and didn't have the latest software installed (including XCode).
+My exact steps were as follows - your steps may vary slightly depending on how "ready" your environment is:
+1. Go to wordpress and obtain an extract of your blog in xml format (tools, export)
+2. Copy your wordpress.xml file to ec2 - I use scp to get it there from my local machine:
+- scp wordpress.xml -i locationofcertfile your_username@remotehost.edu:/some/remote/directory
+3. log in to ec2
+4. sudo yum install -y install gcc mysql-devel ruby-devel rubygems
+5. gem install mysql
+6. sudo yum install libxml2-devel libxslt-devel
+7. gem install nokogiri -- --use-system-libraries=true --with-xml2-include=/usr/include/libxml2/
+8. sudo yum install nodejs npm --enablerepo=epel
+9. gem install hpricot
+10. gem install jekyll-import
+Done!
