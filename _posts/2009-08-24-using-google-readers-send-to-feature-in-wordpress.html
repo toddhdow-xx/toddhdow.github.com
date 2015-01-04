@@ -1,0 +1,47 @@
+---
+layout: post
+title: Using Google Reader's "Send To" feature in Wordpress
+date: 2009-08-24 09:24:11.000000000 +00:00
+categories:
+- technology
+tags:
+- google
+- Publishing
+- reader
+- Social Media
+- tips
+- wordpress
+status: publish
+type: post
+published: true
+meta:
+  _publicize_pending: '1'
+  _edit_last: '982739'
+  reddit: a:2:{s:5:"count";s:1:"0";s:4:"time";s:10:"1317272564";}
+  delicious: a:3:{s:5:"count";s:1:"0";s:9:"post_tags";s:0:"";s:4:"time";s:10:"1317241286";}
+  original_post_id: '819'
+  _wp_old_slug: '819'
+author:
+  login: toddhdow
+  email: toddhdow@gmail.com
+  display_name: Todd Dow
+  first_name: ''
+  last_name: ''
+---
+<p>I'm a heavy user of Google Reader (GR). In fact, I pretty much read all of my web content from GR. I rarely visit a blog directly. It's so much easier to aggregate all of my favourite blogs in GR and read them that way. It makes me more efficient, as I can quickly skim through tens or hundreds of posts. And, I can email interesting posts to friends. I use gmail, and Google has integrated the ability to send to people in my address book directly from GR. Easy peasy.</p>
+<p>A new-ish feature of GR is the ability to "Send To". Basically, within a post in GR, I can send some content to another app. Some default places a post can be sent is Blogger, delicious, Digg, Facebook and Twitter. But I use Wordpress. What's a person to do? Well... there's good news. The good folks at Google have opened up the API to allow additional "Send To" locations to be added. So, a bit of tinkering and I was able to build in a custom "Send To' so that I can submit stuff I read in GR directly to my blogs. This makes it much easier to blog about items that I find in my reading within GR.</p>
+<p>And, to help you out, here are the steps to add your own custom "Send To" for your Wordpress blog:</p>
+<p><img class="alignnone size-full wp-image-77" title="GRwirepaper" src="assets/grwirepaper1.png" alt="GRwirepaper" width="508" height="152" /></p>
+<ol>
+<li>In Google Reader, go to "Settings" (top right hand corner of the screen);</li>
+<li>Click the "Send To" menu option in the top nav bar of the settings area of GR;</li>
+<li>Select any default "Send To" places;</li>
+<li>To add your custom "Send To" destination, click the "Create a custom link" button at the bottom of the screen;</li>
+<li>Here are the settings that I used to get my wirepaper blog set up:</li>
+<li>Name: wirepaper.com</li>
+<li>URL:"<a href="http://wirepaper.com/wp-admin/press-this.php?u=${url}&amp;t=${title}&amp;s=${source}&amp;v=2">http://wirepaper.com/wp-admin/press-this.php?u=${url}&amp;t=${title}&amp;s=${source}&amp;v=2</a>" (without the quotes and obviously, replace the "wirepaper.com" with your domain name)</li>
+<li>Icon URL: <a href="http://0.gravatar.com/avatar/e64c700ba8356e85df84a3da28224b81?s=16&amp;d=identicon&amp;r=G">http://0.gravatar.com/avatar/e64c700ba8356e85df84a3da28224b81?s=16&amp;d=identicon&amp;r=G</a> (this is my custom avatar - feel free to substitute it with your favourite)</li>
+<li>Click "Save".</li>
+<li>Voila! All done.</li>
+</ol>
+<p>Go back to GR and give it a try. Let me know how this works out for you.</p>

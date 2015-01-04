@@ -1,0 +1,34 @@
+---
+layout: post
+title: My 2013 web performance wish list = all in one performance reporting
+date: 2013-01-16 10:29:41.000000000 +00:00
+categories:
+- technology
+tags: []
+status: draft
+type: post
+published: false
+meta:
+  _edit_last: '982739'
+author:
+  login: toddhdow
+  email: toddhdow@gmail.com
+  display_name: Todd Dow
+  first_name: ''
+  last_name: ''
+---
+<p>I'm a huge fan of <a href="http://www.compuware.com/application-performance-management/">Compuware's Gomez product</a>. It's like <a href="https://developers.google.com/speed/pagespeed/">Google's Pagespeed</a> (specifically the <a href="https://developers.google.com/speed/pagespeed/insights#url=http_3A_2F_2Ftoddhdow.com_2F&amp;mobile=false&amp;rule=____critical__path">PageSpeed Critical Path Explorer</a>) on steroids. I've been using Gomez for a few years now and it is one of the most helpful tools that I've found for reliably measuring site performance over time.</p>
+<p>Gomez provides the ability to do real time monitoring of websites, and it provides detailed performance data over a rolling 30 day period. This data can be sliced and diced in many different ways. Here are just three examples of some useful reports:</p>
+<p><strong>A basic dashboard, showing the last 7 days for some major Canadian media companies:</strong></p>
+<p>&nbsp;</p>
+<p><strong>An in-depth view of all of the objects that load on a particular page at a given point in time:</strong></p>
+<p>&nbsp;</p>
+<p><strong>An in-depth view of a page that has some performance hiccups:</strong></p>
+<p>&nbsp;</p>
+<p>These reports allow me to compare my site's performance with that of my competitors. And, it also allows me to quickly and easily identify the sources of show loading websites.</p>
+<p>This has been a tremendous help in troubleshooting performance issues as it has allowed us to quickly identify which object(s) on a page are slow loading. From there, we can focus our attention on those slow loading pieces to see what is going on. In some cases, the culprit is an overly taxed server - adding additional resources usually helps. In other cases, there is a bug in a recent code release - a rollback and a bit of extra time tweaking the code fixes these issues. And in other cases, network issues are at play. Regardless of the root cause, this tool is very helpful in pointing us in the right direction.</p>
+<p>The one spot that remains a weakness with Gomez, Google PageSpeed or any of the various web-based page speed plug-ins is this: what is going on inside of those really long "time bars"? Each object takes a discrete amount of time to load, and these tools show us how long that object took to get to our browser from the time we requested it until the time it finally arrived. But what really happened in there? There are server calls, CPU time, etc. involved in each call. If we find a performance issue in Gomez, we then have to dive into server performance logs and other tools to find out what's going on.</p>
+<p>I'd love to see the marrying of these two kinds of data. And it is coming.</p>
+<p>Compuware has been working hard on another product called Dynatrace, which is a back-end server reporting tool. Compuware is working on the integration between Gomez and DynaTrace so that you can see all of the performance data in one place. I suspect that others are working on similar tools.</p>
+<p>INSERT ADDITIONAL INFO HERE - NOT DONE YET!</p>
+<p>&nbsp;</p>

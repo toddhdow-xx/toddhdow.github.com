@@ -1,0 +1,44 @@
+---
+layout: post
+title: 'SC Congress - Day 1 - 3:30pm - “Keynote: How hackers operate"'
+date: 2013-06-15 09:48:55.000000000 +00:00
+categories:
+- technology
+tags:
+- infosec
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '982739'
+  _publicize_pending: '1'
+  _wpas_done_1343400: '1'
+  _publicize_done_external: a:1:{s:8:"facebook";a:1:{i:907405426;b:1;}}
+  publicize_twitter_user: toddhdow
+  _wpas_done_1470983: '1'
+  publicize_reach: a:3:{s:7:"twitter";a:1:{i:1470983;i:335;}s:2:"fb";a:1:{i:1343400;i:532;}s:2:"wp";a:1:{i:0;i:6;}}
+author:
+  login: toddhdow
+  email: toddhdow@gmail.com
+  display_name: Todd Dow
+  first_name: ''
+  last_name: ''
+---
+<p><strong><a href="http://toddhdow.files.wordpress.com/2013/06/cgi.png"><img class="alignright size-full wp-image-1565" alt="CGI" src="assets/cgi.png" width="102" height="70" /></a>Day 1 - Tues June 11 2013:</strong><br />
+<em>3:30pm - “Keynote: How hackers operate: Live demonstrations of current methods of breaching networks and stealing information”, by <a title="Derrick Webber" href="http://congress.scmagazine.com/page.cfm/Action=Visitor/VisitorID=65">Derrick Webber</a>, penetration testing and digital forensics team lead, CGI</em></p>
+<p>Derrick demonstrated some practical applications of the <a title="Social Engineering Toolkit (SET)" href="https://www.trustedsec.com/downloads/social-engineer-toolkit/">Social Engineering Toolkit (SET)</a>. He demonstrated how to conduct a phishing attack to obtain user login credentials for banking, Google and other sites. In a nutshell, here were the steps:</p>
+<ol>
+<li>Use SET to build a clone of a production website (the site looks the same, only it uses a different URL - wwwgoogle.com.cn for example)</li>
+<li>Use SET to send a phishing email to your target, hoping that they will click the link to your clone website;</li>
+<li>The target goes to the clone website and attempts to log in. At that point, the credentials are captured and the user is redirected to the legitimate website;</li>
+<li>The user then logs in to the legitimate website, usually none the wiser that they just gave up their credentials to the bad guys;</li>
+</ol>
+<p>Derrick mentioned using the <a title="Google Hacking Database" href="http://www.exploit-db.com/google-dorks/">Google Hacking Database</a> to identify data that Google has crawled and would be useful in an exploit. It really is unbelievable how much publically available content is available - and Google has done a great job of indexing it and sharing it if you know how to search for it. For example:</p>
+<ul>
+<li>inurl:"/root/etc/passwd" intext:"home/*:" - this will identify publically accessible password files;</li>
+<li>filetype:ini "This is the default settings file for new PHP installations" - these files contain info that could help you compromise a web server;</li>
+<li>site*.*.*/webalizer intitle:"Usage Statistics" - log files, anyone?</li>
+</ul>
+<p>Finally, Derrick demonstrated using <a title="Metasploit" href="http://www.metasploit.com/">Metasploit</a> to build a trojan, obfuscate attach it to the back of a legitimate exe file (think winword.exe, notepad.exe, etc.) and then deliver the file to an unsuspecting target.</p>
+<p>Derrick shared a great slide on preventing exfiltration of data from hackers. It suggested using proxies, block ports, etc. I haven’t seen the slides online yet, but if I find them, I will link to them from here.</p>
+<p>Overall, this was an awesome presentation!</p>

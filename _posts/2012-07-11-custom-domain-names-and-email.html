@@ -1,0 +1,60 @@
+---
+layout: post
+title: Custom domain names and email
+date: 2012-07-11 09:00:33.000000000 +00:00
+categories:
+- technology
+tags:
+- Infrastructure
+status: publish
+type: post
+published: true
+meta:
+  _publicize_pending: '1'
+  _edit_last: '982739'
+  _thumbnail_id: '294'
+  _wpas_done_facebook: '1'
+  original_post_id: '987'
+  _wp_old_slug: '987'
+author:
+  login: toddhdow
+  email: toddhdow@gmail.com
+  display_name: Todd Dow
+  first_name: ''
+  last_name: ''
+---
+<p><img class="alignright size-full wp-image-294" style="border:0;" title="Godaddy &amp; Google Apps" src="assets/godaddygapps1.png" alt="Godaddy &amp; Google Apps" width="300" height="220" />Today, we're going to talk about getting a custom domain name and email. The two basic points here are:</p>
+<ol>
+<li>Register a unique domain name with <a href="http://x.co/lwQ6">godaddy.com</a> (approx $10 per year)</li>
+<li>Use <a href="https://www.google.com/a/cpanel/standard/new3">Google Apps</a> to set up a custom email address ($free!)</li>
+</ol>
+<p>The first, and most important, piece of your website is your domain name. Your domain name is your brand. Your decision here influences your audience's perception of you and/or your business.</p>
+<p>Some people are fine having a myname.blogspot.com website URL or a bigguy1975@hotmail.com email address. But those names aren't very professional. The key is to have a meaningful domain name that describes your site or business. So pick a name that is meaningful. Ideal names include your name (barackobama.com), your business name (apple.com), your book (fourhourworkweek.com) or some other important concept (google.com - this is no longer just a company, but is also a verb!).</p>
+<p>Make sure you pick a name that is meaningful. And stick with a .com address. .com is still the default web address. .ca or another country specific domain name is an appropriate additional name, but make sure you have the .com as well. The rest of the domain name space is very specialized but not overly critical to secure. At most, get the .com and .countryname where you operate and maybe consider the equivalent .org if it makes sense (typically used for a non-profit or other similar type of organization).</p>
+<p>You may find that your name is already taken. My biggest IT regret is not buying dow.com (my last name) when I was first experimenting online. Dow Chemical Company picked up that domain really early on. It would have been perfect for me, but, not the end of the world. I simply got creative: toddhdow.com. If you do find that your preferred domain name is taken, there are a few options here:</p>
+<ol>
+<li>find a more creative domain name - combinations of your name, your specialty, etc.</li>
+<li>buy the domain name from the current owner - approach the domain owner directly and ask - you never know what value the current owner has assigned to the domain name, or</li>
+<li>participate in an auction - in some cases, investors buy domains so that they can resell them. These people are sometimes affectionately known as domain squatters. Sex.com was reportedly <a href="http://en.wikipedia.org/wiki/Sex.com">sold for $14 million in 2006</a>. Most domain names can be purchased for much less than that. I recently saw a domain name for a friend of mine (his first name and last name.com) for about $1,000.</li>
+</ol>
+<p>Personally, I'd prefer to find a creative domain name that doesn't benefit a domain reseller, but, if you're set on a name, negotiate your price. Domain brokers are a good idea if you don't want to tip your hand - for example, it would be a bad idea to try to buy todd.com by using my name. The seller will know that I am biased towards the name and could increase the price accordingly. A domain broker could help make the negotiation less personal and offer the seller less information to assess the value that the buyer may be willing to pay.</p>
+<p>How do you actually get a domain name though? You use a domain registrar. I personally use <a href="http://x.co/lwQ6">godaddy.com</a> but there are many other reputable domain registrars including <a href="http://www.namecheap.com/">namecheap.com</a> and <a href="http://www.1and1.com/">1and1.com</a>. These sites all make it really easy to purchase a new domain name for about $10 per domain - the sites walk you through the process in just a few easy steps.</p>
+<p>From there, your next step should be to set up a custom email address. Something like todd@wirepaper.com is more professional looking than rockstar99@yahoo.com. Google offers <a href="https://www.google.com/a/cpanel/standard/new3">Google Apps</a> which is a great service that allows you to set up custom email, calendaring, document management, sites and more. Google Apps is free for up to 10 user accounts. It's a bargain as it can power the communication and collaboration needs for most small businesses - all at no cost! Google Apps allows you to set up your own custom email addresses associated with your own domain name (todd@wirepaper.com, for example). And, the best part is that it uses exactly the same interface that Google's public tools use (Gmail, calendar, etc.) so it's bulletproof and instantly recognizable to anyone that has used those tools in the past.</p>
+<p>You'll need a bit of technical expertise to set all of this up. The domain registration and Google Apps registration are straightforward. Answer a few questions and pay using a credit card for the domain registration and you're all done.</p>
+<p>Setting up the custom email will require a bit more work. You'll have to:</p>
+<ol>
+<li><a href="http://support.google.com/a/bin/answer.py?hl=en&amp;answer=60216">verify that you own the domain</a>; and</li>
+<li><a href="http://support.google.com/a/bin/answer.py?hl=en&amp;answer=33353&amp;topic=1611273&amp;ctx=topic">set the MX records and custom domain URLs</a>;</li>
+</ol>
+<p>I personally set the following custom DNS records for my domains:</p>
+<blockquote><p>CNAME calendar ghs.google.com.<br />
+CNAME docs ghs.google.com.<br />
+CNAME mail ghs.google.com.<br />
+MX 5 ALT1.ASPMX.L.GOOGLE.COM.<br />
+MX 5 ALT2.ASPMX.L.GOOGLE.COM.<br />
+MX 1 ASPMX.L.GOOGLE.COM.<br />
+MX 10 ASPMX2.GOOGLEMAIL.COM.<br />
+MX 10 ASPMX3.GOOGLEMAIL.COM.</p></blockquote>
+<p>So yeah… today we've talked about setting up a custom email domain and custom email. Next up, we'll talk about Wordpress - the great equalizer in terms of publishing on the web.</p>
+<p>Talk soon!</p>
+<p>Todd</p>
